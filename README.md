@@ -1,5 +1,5 @@
 #### DEMO : https://cdvision.herokuapp.com/
-![alt text](https://github.com/Abduttayyeb/Cat-Dog-CNN-Image-Classifier-heroku/blob/master/Image/Image-Classification-App.png)
+![image](https://github.com/user-attachments/assets/3c421f21-03af-4c99-ae6a-0e2a9529d961)
 
 I have added the Jupyter notebook for code, and the deployement files in the repo.
 
