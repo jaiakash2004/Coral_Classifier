@@ -1,4 +1,4 @@
-numpy==1.22.0
+numpy==1.26.4
 pip-upgrader
 tensorflow==2.15.0
 tf_keras==2.15.1
