@@ -12,7 +12,7 @@ tensorflow-io==0.31.0
 tensorflow-io-gcs-filesystem==0.31.0
 tensorflow-metadata==1.12.0
 tensorflow-model-optimization==0.7.3
-tensorflow-text==2.10.0
+tensorflow-text==2.12.0
 tensorflowjs==4.21.0
 tensorstore==0.1.69
 termcolor==1.1.0
