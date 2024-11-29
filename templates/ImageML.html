@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Image Classification App</title>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2d1d67d247.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main-style.css') }}">
+</head>
+
+<hr style="width: 44em; position: absolute; top: 199px; left: 0; right: 0; z-index: 20;">
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="font-family: 'Big Shoulders Stencil Text', cursive; font-size: 2rem;">
+                DeepReef: An AI-Powered Solution for Coral Conservation and Marine Biodiversity Assessment
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="button" data-toggle='tooltip' data-placement='bottom' title="1. Click on 'Browse Image' &nbsp; &nbsp;2. Select Image(Corals) &nbsp; 3. Click On 'Predict' " style="font-family: 'Big Shoulders Stencil Text', cursive; font-size: 1rem; margin-right: 10px;">
+                        <i class="fas fa-question"></i>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-light" type="button" style="font-family: 'Big Shoulders Stencil Text', cursive; font-size: 1rem;" data-toggle="modal" data-target="#infoModal">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container card" style="justify-content: center; text-align: center; display: flex; margin-top: 59px; padding-bottom: 36px;">
+        <div id="content" style="margin-top:2em; margin-left: auto; margin-right: auto;">
+            <h2 style="font-family: 'Abel', sans-serif;">Classification of Healthy and Bleached Corals</h2>
+
+            <form action="{{ url_for('upload_image')}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image" class="upload-label">Browse Image</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="image">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+
+            <div class="image-section" style="display:none;">
+                <div class="img-preview">
+                    <div id="imagePreview"></div>
+                </div>
+            </div>
+            <br>
+            <div id="result" style="font-family: 'Abel', sans-serif; font-size: 2.5rem;">{{ prediction }}</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">About Me</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Name:</strong> Your Name</p>
+                    <p><strong>Class:</strong> Your Class</p>
+                    <p><strong>School:</strong> Your School Name</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; position: fixed; top: 43.9em; left: 0; right: 0; font-family: 'Abel', sans-serif;" class="text-muted">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" style="text-align: left;"></div>
+                <div class="col-sm">
+                    Made by ME
+                </div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image").change(function () {
+            $('.image-section').show();
+            $('#result').hide();
+            readURL(this);
+        });
+    </script>
+</body>
+</html>
