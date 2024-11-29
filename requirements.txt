@@ -1,7 +1,6 @@
 numpy==1.22.0
 pip-upgrader
-tensorflow==2.12.0
-tensorflow-decision-forests==1.8.1
+tensorflow==2.15.0
 tf_keras==2.15.1
 thop==0.1.1.post2209072238
 threadpoolctl==3.1.0
@@ -256,7 +255,7 @@ jupyter_server_terminals==0.4.4
 jupyterlab-pygments==0.2.2
 jupyterlab-widgets==3.0.5
 kaggle==1.5.13
-keras==2.12.0
+keras==2.15.0
 Keras-Preprocessing==1.1.2
 keyboard==0.13.5
 kiwisolver==1.4.4
