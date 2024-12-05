@@ -3,7 +3,7 @@
 
 I have added the Jupyter notebook for code, and the deployement files in the repo.
 
-# Cat-Dog-CNN-Image-Classifier-heroku
+# Coral-CNN-Image-Classifier-flask
 
 I trained a CNN Model with Convolution , Max Pooling and Flattening in the end, each of these steps play a significant role in classification of the image,and feature extraction
 
