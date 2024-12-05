@@ -1,5 +1,5 @@
 #### DEMO :
-![alt text](https://github.com/Abduttayyeb/Cat-Dog-CNN-Image-Classifier-heroku/blob/master/Image/Image-Classification-App.png)
+![alt text](https://github.com/jaiakash2004/Coral_Classifier/blob/main/Image/webpage.png)
 
 I have added the Jupyter notebook for code, and the deployement files in the repo.
 
